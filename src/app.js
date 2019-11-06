@@ -58,7 +58,7 @@ app.get('/weather', (req, res) =>{
             if(!error){
                 // console.log("location",location);
                 // console.log("lat long",latitude, longitude)
-                forecast(latitude,longitude,(error,{summary, temperature, precipProb, humidity})=>{
+                forecast(latitude,longitude,(error,{summary, temperature, precipProb, humidity, currently})=>{
                     if(!error)
                     {
                         // console.log("data",forecastData);
@@ -70,7 +70,9 @@ app.get('/weather', (req, res) =>{
                             precipitationProbablility: precipProb,
                             humidity: humidity,
                             location: location,
-                            summary: ' It\'s currently '+temperature+'°C. There is a '+precipProb+'% chance of rain, Humidity: '+humidity
+                            summary: ' It\'s currently '+temperature+'°C. There is a '+precipProb+'% chance of rain, Humidity: '+humidity,
+                            nativeSummary: summary,
+                            currently: currently
                         });
                     }
                     else{

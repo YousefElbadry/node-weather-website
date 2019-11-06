@@ -10,6 +10,7 @@ const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
 let messageOne = document.querySelector('#message-1');
 let messageTwo = document.querySelector('#message-2');
+let messageThree = document.querySelector('#message-3');
 
 
 weatherForm.addEventListener('submit', (e) => {
@@ -29,6 +30,8 @@ weatherForm.addEventListener('submit', (e) => {
                 messageOne.textContent = data.location;
                 console.log(data.summary);
                 messageTwo.textContent = data.summary;
+                console.log(data.currently);
+                messageThree.textContent = data.nativeSummary+'  Current Time: '+new Date(Number(data.currently)*1000);
             }
             
         });    

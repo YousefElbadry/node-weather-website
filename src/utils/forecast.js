@@ -11,13 +11,14 @@ const forecast=(latitude, longitude,callback)=>{
                 callback('unable to find location',undefined);
             } else{
                 
-            // console.log(body);
+            console.log("body",body);
             // summary: response.body.daily.data[0].summary+' It\'s currently '+response.body.currently.temperature+'. There is a '+response.body.currently.precipProbability+' chance'        
             const data={
                 summary: body.daily.data[0].summary,
                 temperature: body.currently.temperature,
                 precipProb: body.currently.precipProbability,
-                humidity: body.currently.humidity
+                humidity: body.currently.humidity,
+                currently: body.currently.time
             }
             callback(undefined,data);
             // console.log(response.body);
